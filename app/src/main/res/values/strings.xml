@@ -2,7 +2,10 @@
 <resources>
 
     <string name="app_name">CriminalIntent</string>
-    <string name="crime_title_hint">Enter crime details here</string>
+    <string name="crime_title_hint">Enter crime title here</string>
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="crimeTitle_Title">TITLE</string>
+    <string name="crimeTitle_Details">DETAILS</string>
+    <string name="crimeCheck_Solved">Solved</string>
 
 </resources>

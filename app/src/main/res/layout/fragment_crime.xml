@@ -6,8 +6,33 @@
               android:layout_height="match_parent">
 
     <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            style="@style/TextAppearance.AppCompat.Headline"
+            android:text="@string/crimeTitle_Title"
+            android:inputType="none"/>
+    <EditText
             android:id="@+id/crime_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="16dp"
+            android:layout_marginRight="16dp"
+            android:hint="@string/crime_title_hint"/>
+    <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            style="@style/Base.TextAppearance.AppCompat.Headline"
+            android:text="@string/crimeTitle_Details"
+            android:inputType="none"/>
+    <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:hint="@string/crime_title_hint"/>
+            android:id="@+id/buttonTimeCrime"
+            android:layout_gravity="center_horizontal"/>
+    <CheckBox
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/crimeCheck_Solved"
+            android:id="@+id/checkBoxCrimeSolved"/>
 </LinearLayout>
