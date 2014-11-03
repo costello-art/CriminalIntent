@@ -25,7 +25,7 @@ public class CrimeListFragment extends ListFragment {
         getActivity().setTitle(R.string.crime_title);
         mCrimes = CrimeLab.get(getActivity()).getCrimes();
 
-       CrimeAdapter adapter = new CrimeAdapter(mCrimes);
+        CrimeAdapter adapter = new CrimeAdapter(mCrimes);
         setListAdapter(adapter);
     }
 
@@ -35,33 +35,34 @@ public class CrimeListFragment extends ListFragment {
         Log.d(TAG, String.format("Clicked item %d, title: %s", position, getListAdapter().getItem(position)));
     }
 
-    @Override
-    public View getView(int position, View convertView, ViewGroup parent) {
-        // If we weren't given a view, inflate one
-        if (convertView == null) {
-            convertView = getActivity().getLayoutInflater().inflate(R.layout.list_item_crime, null);
-        }
-
-        // Configure the view for this Crime
-        Crime c = (Crime) getListAdapter().getItem(position);
-
-        // Crime c = getI
-
-        TextView titleTextView = (TextView) convertView.findViewById(R.id.crime_list_item_crime_title);
-        titleTextView.setText(c.getTitle());
-
-        TextView dateTextView = (TextView) convertView.findViewById(R.id.crime_list_item_crime_date);
-        dateTextView.setText(c.getDate().toString());
-
-        CheckBox solvedCheckBox = (CheckBox) convertView.findViewById(R.id.crime_list_item_solved_check);
-        solvedCheckBox.setChecked(c.isSolved());
-
-        return convertView;
-    }
 
     private class CrimeAdapter extends ArrayAdapter<Crime> {
         public CrimeAdapter(ArrayList<Crime> crimes) {
             super(getActivity(), 0, crimes);
+        }
+
+        @Override
+        public View getView(int position, View convertView, ViewGroup parent) {
+            // If we weren't given a view, inflate one
+            if (convertView == null) {
+                convertView = getActivity().getLayoutInflater().inflate(R.layout.list_item_crime, null);
+            }
+
+            // Configure the view for this Crime
+            Crime c = (Crime) getListAdapter().getItem(position);
+
+            // Crime c = getI
+
+            TextView titleTextView = (TextView) convertView.findViewById(R.id.crime_list_item_crime_title);
+            titleTextView.setText(c.getTitle());
+
+            TextView dateTextView = (TextView) convertView.findViewById(R.id.crime_list_item_crime_date);
+            dateTextView.setText(c.getDate().toString());
+
+            CheckBox solvedCheckBox = (CheckBox) convertView.findViewById(R.id.crime_list_item_solved_check);
+            solvedCheckBox.setChecked(c.isSolved());
+
+            return convertView;
         }
     }
 }
