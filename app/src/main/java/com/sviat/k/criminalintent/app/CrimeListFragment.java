@@ -51,8 +51,6 @@ public class CrimeListFragment extends ListFragment {
             // Configure the view for this Crime
             Crime c = (Crime) getListAdapter().getItem(position);
 
-            // Crime c = getI
-
             TextView titleTextView = (TextView) convertView.findViewById(R.id.crime_list_item_crime_title);
             titleTextView.setText(c.getTitle());
 
