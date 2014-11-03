@@ -5,10 +5,12 @@ import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.text.Editable;
 import android.text.TextWatcher;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.CheckBox;
+import android.widget.CompoundButton;
 import android.widget.EditText;
 
 /**
@@ -16,8 +18,11 @@ import android.widget.EditText;
  */
 public class CrimeFragment extends Fragment {
     private static final String TAG = "CrimeFragment";
-    private EditText mEditText;
     private Crime mCrime;
+
+    private EditText mTextCrimeTitle;
+    private Button mTimeButton;
+    private CheckBox mCheckSolved;
 
     public CrimeFragment() {
         // Required empty public constructor
@@ -34,9 +39,9 @@ public class CrimeFragment extends Fragment {
 
         View v = inflater.inflate(R.layout.fragment_crime, container, false);
 
-        mEditText = (EditText) v.findViewById(R.id.crime_title);
+        mTextCrimeTitle = (EditText) v.findViewById(R.id.crime_title);
 
-        mEditText.addTextChangedListener(new TextWatcher() {
+        mTextCrimeTitle.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
 
@@ -53,6 +58,18 @@ public class CrimeFragment extends Fragment {
             }
         });
 
+        mTextCrimeTitle = (EditText) v.findViewById(R.id.crime_title);
+        mTimeButton = (Button) v.findViewById(R.id.buttonTimeCrime);
+        mTimeButton.setText(mCrime.getDate().toString());
+
+        mCheckSolved = (CheckBox) v.findViewById(R.id.checkBoxCrimeSolved);
+        mCheckSolved.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                mCrime.setSolved(isChecked);
+            }
+        });
+
         return v;
     }
 
@@ -66,5 +83,4 @@ public class CrimeFragment extends Fragment {
     public void onDetach() {
         super.onDetach();
     }
-
 }
