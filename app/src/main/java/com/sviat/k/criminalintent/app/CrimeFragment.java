@@ -13,11 +13,14 @@ import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.EditText;
 
+import java.util.UUID;
+
 /**
  * Created by Sviat on 02.11.14.
  */
 public class CrimeFragment extends Fragment {
     private static final String TAG = "CrimeFragment";
+    public static final String EXTRA_CRIME_ID = "com.sviat.k.criminalintent.app.crime_id";
     private Crime mCrime;
 
     private EditText mTextCrimeTitle;
@@ -31,7 +34,9 @@ public class CrimeFragment extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        mCrime = new Crime();
+
+        UUID crimeId = (UUID) getActivity().getIntent().getSerializableExtra(CrimeFragment.EXTRA_CRIME_ID);
+        mCrime = CrimeLab.get(getActivity()).getCrime(crimeId);
     }
 
     @Override
@@ -59,10 +64,14 @@ public class CrimeFragment extends Fragment {
         });
 
         mTextCrimeTitle = (EditText) v.findViewById(R.id.crime_title);
+        mTextCrimeTitle.setText(mCrime.getTitle());
+
         mTimeButton = (Button) v.findViewById(R.id.buttonTimeCrime);
         mTimeButton.setText(mCrime.getDate().toString());
 
         mCheckSolved = (CheckBox) v.findViewById(R.id.checkBoxCrimeSolved);
+        mCheckSolved.setChecked(mCrime.isSolved());
+
         mCheckSolved.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
