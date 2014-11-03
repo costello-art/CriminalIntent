@@ -7,5 +7,6 @@
     <string name="crimeTitle_Title">TITLE</string>
     <string name="crimeTitle_Details">DETAILS</string>
     <string name="crimeCheck_Solved">Solved</string>
+    <string name="crime_title">Crimes</string>
 
 </resources>
