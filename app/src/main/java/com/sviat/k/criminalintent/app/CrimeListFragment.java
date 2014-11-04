@@ -3,13 +3,15 @@ package com.sviat.k.criminalintent.app;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.ListFragment;
-import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.CheckBox;
 import android.widget.ListView;
 import android.widget.TextView;
+import com.sviat.k.criminalintent.app.activity.CrimeActivity;
+import com.sviat.k.criminalintent.app.data.Crime;
+import com.sviat.k.criminalintent.app.data.CrimeLab;
 
 import java.util.ArrayList;
 

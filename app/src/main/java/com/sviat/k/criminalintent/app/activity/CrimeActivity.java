@@ -1,7 +1,10 @@
-package com.sviat.k.criminalintent.app;
+package com.sviat.k.criminalintent.app.activity;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import com.sviat.k.criminalintent.app.CrimeFragment;
+import com.sviat.k.criminalintent.app.R;
+import com.sviat.k.criminalintent.app.SingleFragmentActivity;
 
 import java.util.UUID;
 

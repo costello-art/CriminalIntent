@@ -1,6 +1,8 @@
-package com.sviat.k.criminalintent.app;
+package com.sviat.k.criminalintent.app.activity;
 
 import android.support.v4.app.Fragment;
+import com.sviat.k.criminalintent.app.CrimeListFragment;
+import com.sviat.k.criminalintent.app.SingleFragmentActivity;
 
 /**
  * Created by Sviat on 03.11.14.

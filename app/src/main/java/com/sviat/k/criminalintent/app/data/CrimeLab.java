@@ -1,4 +1,4 @@
-package com.sviat.k.criminalintent.app;
+package com.sviat.k.criminalintent.app.data;
 
 import android.content.Context;
 
